@@ -56,6 +56,22 @@ class Paper{
 				$result = $newresult;
 				$_SESSION['result'] = $result;
 				
+				$qlist = array();
+				$ilist = array();
+				foreach($this->questions as $v){
+					$insert = TRUE;
+					if($v->conditionInsert){
+						$func = $v->conditionInsert;
+						$insert = $func($result);
+					}
+					if($insert == TRUE){
+						array_push($ilist, $v->uniqueid);
+						$qlist[] = $v;
+					}
+				}
+				$this->questions = $qlist;
+				$this->index = $ilist;
+				
 				$this->nextQuestion();
 
 				return array();
