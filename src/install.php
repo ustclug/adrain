@@ -1,6 +1,4 @@
 <?php
-echo file_get_contents('./config.php');
-
 if(file_exists('./config-session.php')){
 	exit('Access Denied');
 }
