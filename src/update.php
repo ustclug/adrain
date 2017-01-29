@@ -2,7 +2,6 @@
 define('IN_ADRAIN', 1);
 require './global.php';
 
-echo file_get_contents('./config-session.php');
 
 $msgtype = 'info';
 
