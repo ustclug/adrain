@@ -29,7 +29,7 @@ if(login()){
 	<div class="jumbotron">
 	  <h3>必须通过科大的统一登录系统，才能访问 ADRain</h3>
 	  <p>如果出现异常账户，请删除cookie里的passport.ustc.edu.cn的laravel_session。</p>
-	  <p><a class="btn btn-primary btn-lg" href="login.php" role="button">登录</a></p>
+	  <p><a class="btn btn-primary btn-lg" href="http://sec.ustc.edu.cn/adrain/plogin.php" role="button">登录</a></p>
 	</div>
 <?php	
 }
