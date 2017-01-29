@@ -7,8 +7,11 @@ error_reporting(E_ALL ^ E_NOTICE);
 define('TIMESTAMP', time());
 
 session_start();
+ob_start();
 
 require './subject.php';
+
+$sca = new simplecookieauth;
 
 function login(){
 	return $_SESSION['userid'];
@@ -81,5 +84,32 @@ class db{
 	
 	public static function fetch($query){
 		return mysqli_fetch_array($query, MYSQLI_ASSOC);
+	}
+}
+
+class simplecookieauth{
+	public $cookielist = array();
+	
+	function __construct(){
+		$sessionkey = '';
+		
+		require './config-session.php';
+		
+		foreach($_COOKIE as $name=>$value){
+			if(substr($name, 0, 4) == 'sca_'){		
+				if($value == sha1($sessionkey .'|'. $name)){
+					$this->cookielist [] = substr($name, 4);
+				}
+			}
+		}
+	}
+	
+	function addCookie($name){
+		$this->cookielist [] = $name;
+		$sessionkey = '';
+		require './config-session.php';
+		setcookie('sca_'.$name, $password = sha1($sessionkey .'|sca_'. $name), time() + 30 * 86400);
+		
+		return 'AA'.$name.'-'.$password;
 	}
 }

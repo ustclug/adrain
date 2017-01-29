@@ -1,5 +1,5 @@
 <?php
-if(file_exists('./config.php')){
+if(file_exists('./config-session.php')){
 	exit('Access Denied');
 }
 error_reporting(E_ALL ^ E_NOTICE);
@@ -9,6 +9,7 @@ if($_POST['dbserver']){
 	$dbuser = $_POST['dbuser'];
 	$dbpw = $_POST['dbpw'];
 	$dbname = $_POST['dbname'];
+	$sessionkey = $_POST['sessionkey'];
 	
 	if($_POST['createdb'] == 'no')
 		$mysqli = new mysqli($dbserver, $dbuser, $dbpw, $dbname);
@@ -24,22 +25,24 @@ if($_POST['dbserver']){
 	}
 	
 	if($_POST['createtable'] == 'yes'){
+		$mysqli->query("DROP TABLE IF EXISTS `case`");
 		$mysqli->query("CREATE TABLE IF NOT EXISTS `case` (
-  `cid` int(10) unsigned NOT NULL auto_increment,
-  `dateofad` char(10) NOT NULL,
-  `univname` varchar(200) NOT NULL,
-  `funding` char(50) NOT NULL,
-  `label` varchar(200) NOT NULL,
-  `languagescore` varchar(200) NOT NULL,
-  `gpa` varchar(200) NOT NULL,
-  `subject` char(50) NOT NULL,
+  `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `hidden` int(11) NOT NULL DEFAULT '0',
+  `dateofad` char(10) NOT NULL DEFAULT '',
+  `univname` varchar(200) NOT NULL DEFAULT '',
+  `funding` char(50) DEFAULT '',
+  `label` varchar(200) DEFAULT '',
+  `languagescore` varchar(200) NOT NULL DEFAULT '',
+  `gpa` varchar(200) NOT NULL DEFAULT '',
+  `subject` char(50) NOT NULL DEFAULT '',
   `noteforchoose` text NOT NULL,
-  `schoolname` varchar(300) NOT NULL,
-  `subsubject` char(100) NOT NULL,
+  `schoolname` varchar(300) NOT NULL DEFAULT '',
+  `subsubject` char(100) NOT NULL DEFAULT '',
   `noteforad` text NOT NULL,
-  PRIMARY KEY  (`cid`),
+  PRIMARY KEY (`cid`),
   KEY `subject` (`subject`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
 	}
 	
 	file_put_contents('./config.php', '<?php
@@ -49,7 +52,10 @@ $dbserver = '.var_export($dbserver, TRUE).';
 $dbuser= '.var_export($dbuser, TRUE).';
 $dbpw = '.var_export($dbpw, TRUE).';
 $dbname  = '.var_export($dbname, TRUE).';');
-	
+
+	file_put_contents('./config-session.php', '<?php
+if(!defined(\'IN_ADRAIN\')) exit(\'Access Denied\');
+$sessionkey = '.var_export($sessionkey, TRUE).';');
 	
 	echo 'Successful!';
 }else{
@@ -124,6 +130,10 @@ $dbname  = '.var_export($dbname, TRUE).';');
 			  <input type="text" name="dbname" class="form-control" placeholder="e.g. 127.0.0.1">
 		</div><br/>
 		
+		<div class="input-group">
+			  <span class="input-group-addon">输入一个随机的字符串（请尽量长）用于临时保存会话:</span>
+			  <input type="text" name="sessionkey" class="form-control" placeholder="e.g. 357tegdh0iq02y3iwfsodhoag">
+		</div><br/>
 		
 	   <div class="input-group">
 			  <span class="input-group-addon">需要我创建数据库吗？:</span>

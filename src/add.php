@@ -81,14 +81,20 @@ if($Paper->isfinal()){
 		$label[] = 'CONTACT';
 	}
 	
-	$stmt->bind_param('sssssssssss', $result['DateOfInformation'], $result['UniversityName'], $result['FundingStatement'], join($label, ','), $result['LanguageStatement'], $result['GpaStatement'], $result['SubjectInformation'], $result['ChooseReason'], $result['SchoolName'], $result['SubsubjectName'], $result['ResultReason']);
-	$stmt->execute();
-	$stmt->close();
+	$labelcode = join($label, ',');
 	
+	$stmt->bind_param('sssssssssss', $result['DateOfInformation'], $result['UniversityName'], $result['FundingStatement'], $labelcode, $result['LanguageStatement'], $result['GpaStatement'], $result['SubjectInformation'], $result['ChooseReason'], $result['SchoolName'], $result['SubsubjectName'], $result['ResultReason']);
+	
+	$stmt->execute();$cid = $stmt->insert_id;
+	$stmt->close();
 	$message_status = ' exit';
 	
 	$results[0] = 'exit';
-	$results[1] = '<p>你的结果已经成功添加到数据库。</p>';
+	$res = $sca->addCookie($cid);
+
+	$results[1] = '<p>你的结果已经成功添加到数据库。</p><p>如果您后面需要删除自己的信息（用于更新或者其他用途），请妥善保管这个代码： '.$res.'。您在30天内，浏览器会保留您的删除信息的权限。过期或者浏览器切换后可以使用该码在页面右下角的“激活TOKEN”处激活代码。</p><p>这样做是保证了系统不会存储用户的个人信息。</p>';
+	
+		
 	$_SESSION['result'] = array();
 	$_SESSION['pos'] = 'OfferAdCommitment';
 }else{
