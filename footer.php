@@ -7,7 +7,8 @@ if(!defined('IN_ADRAIN')) exit('Access Denied');
 	
 	<br/>
 	<div class="container" style="color: #444;text-align:center;">
-	<p>2017 Adrain@USTC</p>
+	<p>2017 Admission Rain LUG@USTC, SEC@USTC</p>
+	<p>The University of Science and Technology of China is going to be a worldwide first-class university. The massive support from us is of great importance.</p>
 	</div>
 
     <!-- Bootstrap core JavaScript

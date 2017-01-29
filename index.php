@@ -10,9 +10,17 @@ if(login()){
 	db::init();
 ?>
 	  <table class="table">
-		<tr><th>学科大类</th></tr>
-		<?php foreach($_ENV['subject'] as $k=>$v):?>
-		<tr><td><a href="list.php?y=<?php echo $k;?>"><?php echo $v;?></a></td></tr>
+		<tr><th colspan="4">学科大类</th></tr><tr>
+		<?php 
+		$counter = 0;
+		foreach($_ENV['subject'] as $k=>$v):
+		$counter ++;
+		?>
+		<td><a href="list.php?y=<?php echo $k;?>"><?php echo $v;?></a></td>
+		<?php
+		if($counter % 4 == 0):
+		?></tr>
+		<?php endif;?>
 		<?php endforeach;?>
 	  </table>
 <?php
