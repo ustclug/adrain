@@ -14,6 +14,7 @@ if($_GET['userid'] && $_GET['expire']){
 	}
 	
 	$_SESSION['userid'] = 1;
+	header('location: ./index.php');
 }
 ?>
 
