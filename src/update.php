@@ -2,9 +2,6 @@
 define('IN_ADRAIN', 1);
 require './global.php';
 
-db::init();
-db::query(" ALTER TABLE `case` AUTO_INCREMENT =6 ");
-
 $msgtype = 'info';
 
 if($_POST['ID']){
