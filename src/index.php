@@ -13,10 +13,22 @@ if(login()){
 		<tr><th colspan="4">学科大类</th></tr><tr>
 		<?php 
 		$counter = 0;
-		foreach($_ENV['subject'] as $k=>$v):
+		$sub = $_ENV['subject'];
+		$sub['all'] = '全部';
+		foreach($sub as $k=>$v):
 		$counter ++;
 		?>
-		<td><a href="list.php?y=<?php echo $k;?>"><?php echo $v;?></a></td>
+		<td><a href=
+		<?php
+		if($k!='all'):
+		?>
+		"list.php?y=<?php echo $k;?>"
+		<?php
+		else:
+		?>
+		"listall.php"
+		<?php endif;?>
+		><?php echo $v;?></a></td>
 		<?php
 		if($counter % 4 == 0):
 		?></tr>
