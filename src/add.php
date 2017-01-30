@@ -116,7 +116,7 @@ template('header');
 ?>
 
 <br/>
-<p>数据库不存储任何和用户身份绑定的信息。</p>
+<p>填写该报告可能需要10-20分钟。您填写越详细，提供给师弟师妹的帮助就越多！</p>
 <br/>
 		<?php if($results && $results[0] == 'warning' ):?>
 		<div class="alert alert-danger" role="alert">
