@@ -4,10 +4,6 @@ require './global.php';
 
 $msgtype = 'info';
 
-db::init();
-db::query("ALTER TABLE `case` CHANGE `funding` `funding` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL");
-echo '<!--->';
-
 if($_POST['ID']){
 	$flag = FALSE;
 	if(substr($_POST['ID'],0,2) == 'AA'){
