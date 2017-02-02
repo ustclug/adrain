@@ -2,6 +2,10 @@
 define('IN_ADRAIN', 1);
 require './global.php';
 
+if(!login()){
+	header('location:index.php');
+}
+
 template('header');
 ?>
 <br/>
