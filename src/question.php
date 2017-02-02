@@ -205,7 +205,7 @@ function NoIfRej($input){
 	}else return TRUE;
 }
 
-$Paper->addQuestion(new Question('FundingStatement', '<p>请提供你的录取的资助情况。如果您是硕士，通常没有奖学金，但也有例外。如果无奖学金，可以留空。</p>', 'text', 'e.g. 无奖学金', 'NoIfRej', ''));
+$Paper->addQuestion(new Question('FundingStatement', '<p>请提供你的录取的资助情况。<b>考虑到各种各样不同的计算方式的存在，我们请您用越详细越好的介绍来描述资助，包括有没有算医保啊，有没有算暑假工啊，学费在不在里面啊。特别表明“可以用来买牙膏的钱是多少”。</b>如果您是硕士，通常没有奖学金，但也有例外。如果无奖学金，可以留空。</p>', 'text', 'e.g. 无奖学金', 'NoIfRej', ''));
 
 $Paper->addQuestion(new Question('LanguageStatement', '<p>请提供你的本人的英语成绩。这是一个选择性的问题，您可以不回答，也可以回答。您如果回答，可以详细提供小分，也可以不提供小分。</p>', 'text', 'e.g. T100(R25+L25+S25+W25) G150+170+3', '', ''));
 
