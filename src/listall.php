@@ -10,7 +10,7 @@ template('header');
 ?>
 <br/>
 	  <table class="table">
-		<tr><th>通知日期</th><th>细分方向</th><th>学校名称</th><th>项目名称</th><th>标签</th><th width="400">具体信息</th></tr>
+		<tr><th>通知日期</th><th>细分方向</th><th>学校名称</th><th>项目名称</th><th width="200">标签</th><th width="400">具体信息</th></tr>
 	   <?php
 			db::init();
 			
