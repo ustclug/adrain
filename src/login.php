@@ -1,20 +1,21 @@
 <?php
-session_start();
-error_reporting(0);
-if($_GET['userid'] && $_GET['expire']){
-	$expire = $_GET['expire'];
-	
-	if($expire < time())
-		exit('Timeout');
-	
-	require './config2.php'; //has a variable $key in config2.php
-	
-	if(sha1($key .'|'. $expire) != $_GET['userid']){
-		exit('Wrong');
-	}
-	
-	$_SESSION['userid'] = 1;
-	header('location: ./index.php');
-}
-?>
 
+$cas_host="passport.ustc.edu.cn";
+$cas_port=443;
+$cas_context="";
+
+require_once './cas-client/CAS.php';
+
+phpCAS::proxy(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
+$url="http://".$_SERVER["HTTP_HOST"].$_SERVER['PHP_SELF'];
+phpCAS::setFixedServiceURL($url);
+phpCAS::setNoCasServerValidation();
+phpCAS::forceAuthentication();
+$user = phpCAS::getUser();
+$attributes = phpCAS::getAttributes();
+
+$studentnumber = addslashes($user);
+
+$_SESSION['userid'] = $studentnumber;
+header('location: https://adrain.ustclug.org/index.php');
+?>
