@@ -20,4 +20,8 @@ server {
     fastcgi_index index.php;
     include fastcgi_params;
   }
+
+  location /private/ {
+       include /etc/nginx/allow-ustcnet.conf;
+  }
 }
