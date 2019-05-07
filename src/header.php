@@ -50,7 +50,7 @@ if(!defined('IN_ADRAIN')) exit('Access Denied');
 	  <div class="bs-docs-header" id="content" style="padding-top: 20px; padding-bottom: 20px; margin-top: 20px; margin-bottom: 20px;background-color:  #6f5499; color: #fff; position: relative;">
       <div class="container">
         <h2>作为科大人，你要自信！</h2>
-        <p>科大校友不仅不仅从事高科技行业的众多，而且很团结，经常活动聚会，有互相帮助的优良传统。</p>
+        <p>科大校友不仅从事高科技行业的众多，而且很团结，经常活动聚会，有互相帮助的优良传统。</p>
       </div>
     </div>
 
