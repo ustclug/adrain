@@ -9,8 +9,8 @@ template('header');
 if(login()){
 	db::init();
 ?>
-    <div class="alert alert-primary" role="alert">
-      <a href="attachments/cs-merge.pdf">2019中科大CS飞跃手册,涵盖各领域申请经验,欢迎下载~</a>
+    <div class="alert alert-info" role="alert">
+	2019中科大CS飞跃手册,涵盖各领域申请经验,欢迎<a href="attachments/cs-merge.pdf" class="alert-link">下载~</a>
     </div>
 	  <table class="table">
 		<tr><th colspan="4">学科大类</th></tr><tr>
