@@ -1,5 +1,5 @@
 <?php
-
+require '../global.php';
 if(login()){
     header("Content-type:application/pdf");
     // It will be called downloaded.pdf
