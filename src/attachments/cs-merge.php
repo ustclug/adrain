@@ -8,5 +8,5 @@ if(login()){
     readfile("/srv/priv/cs-merge.pdf");
 } else
 {
-    <p><a href="../plogin.php">登录</a></p>
+    print "<p><a href="../plogin.php">登录</a></p>";
 }
