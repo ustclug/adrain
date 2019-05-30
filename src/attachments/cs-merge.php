@@ -1,4 +1,5 @@
 <?php
+define('IN_ADRAIN', 1);
 require '../global.php';
 if(login()){
     header("Content-type:application/pdf");
