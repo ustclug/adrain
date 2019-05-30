@@ -1,6 +1,8 @@
 <?php
-define('IN_ADRAIN', 1);
-require '../global.php';
+session_start();
+function login(){
+	return $_SESSION['userid'];
+}
 if(login()){
     header("Content-type:application/pdf");
     // It will be called downloaded.pdf
