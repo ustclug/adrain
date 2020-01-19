@@ -16,5 +16,5 @@ $_ENV['subject'] = array(
 	'electronic-engineering' => '电子工程 EE',
 	'geo' => '地球科学 Geo',
 	'environment' => '环境科学 Envr',
-	'arts' => '文科 Arts',
+	'arts' => '其他学科 Other',
 );
