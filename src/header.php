@@ -40,7 +40,7 @@ if(!defined('IN_ADRAIN')) exit('Access Denied');
       <div class="container"><img src="images/aplogo.gif" style="float:right;" />
   <ul class="nav nav-pills" role="tablist">
   <li role="presentation"<?php echo !defined('IN_ADD')?" class=\"active\"":'';?>><a href="index.php">不同学科进展</a></li>
-  <li role="presentation"<?php echo defined('IN_ADD')?" class=\"active\"":'';?>><a href="add.php">报告我的录取案例（通过和拒绝）</a></li>
+  <li role="presentation"<?php echo defined('IN_ADD')?" class=\"active\"":'';?>><a href="add.php">报告我的录取案例</a></li>
   <?php
   if(0 && login()):?>
   <li role="presentation"><a href="logout.php">退出当前账号</a></li>
@@ -49,8 +49,8 @@ if(!defined('IN_ADRAIN')) exit('Access Denied');
 
 	  <div class="bs-docs-header" id="content" style="padding-top: 20px; padding-bottom: 20px; margin-top: 20px; margin-bottom: 20px;background-color:  #6f5499; color: #fff; position: relative;">
       <div class="container">
-        <h2>作为科大人，你要自信！</h2>
-        <p>科大校友不仅从事高科技行业的众多，而且很团结，经常活动聚会，有互相帮助的优良传统。</p>
+        <h2>出国没有那么难！</h2>
+        <p>研究表明，只要考了托福和GRE，都是可以出国的。</p>
       </div>
     </div>
 
