@@ -50,7 +50,7 @@ if(!defined('IN_ADRAIN')) exit('Access Denied');
 	  <div class="bs-docs-header" id="content" style="padding-top: 20px; padding-bottom: 20px; margin-top: 20px; margin-bottom: 20px;background-color:  #6f5499; color: #fff; position: relative;">
       <div class="container">
         <h2>出国没有那么难！</h2>
-        <p>研究表明，只要考了托福和GRE，都是可以出国的。</p>
+        <p>研究表明，只要考了托福和GRE，都是可以出国的。———— 陈炜铿（2013级郭沫若奖获得者）</p>
       </div>
     </div>
 
