@@ -6,10 +6,10 @@ $cas_context="";
 
 require_once './cas-client/CAS.php';
 
-phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
+phpCAS::proxy(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
 //$url="http://".$_SERVER["HTTP_HOST"].$_SERVER['PHP_SELF'];
-// $url="http://sso-proxy.lug.ustc.edu.cn/plogin.php";
-// phpCAS::setFixedServiceURL($url);
+$url="https://adrain.ustclug.org/login.php";
+phpCAS::setFixedServiceURL($url);
 phpCAS::setNoCasServerValidation();
 phpCAS::forceAuthentication();
 $user = phpCAS::getUser();
