@@ -175,7 +175,7 @@ $Paper->addQuestion(new Question('OfferAdCommitment', '<p>为了保证数据的�
 $subjectinfo = array();
 foreach($_ENV['subject'] as $k=>$v) $subjectinfo[]=$k.'='.$v;
 
-$Paper->addQuestion(new Question('SubjectInformation', '<p>请选择您的录取信息所属的学科，如果您没有找到您的大类学科，请联系QQ群616513207。</p>', 'select', join($subjectinfo, '/'), '', ''));
+$Paper->addQuestion(new Question('SubjectInformation', '<p>请选择您的录取信息所属的学科，如果您没有找到您的大类学科，请联系本年度飞跃QQ群。</p>', 'select', join($subjectinfo, '/'), '', ''));
 
 function OfferAdCommitmentFunc($input){
 	if($input['OfferAdCommitment']=='no'){ 
