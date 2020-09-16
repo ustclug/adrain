@@ -10,7 +10,13 @@ if(login()){
 	db::init();
 ?>
     <div class="alert alert-info" role="alert">
-	2020中科大CS飞跃手册，涵盖各领域申请经验，欢迎下载：（<a href="attachments/cs-2020.php" class="alert-link">2020年版</a>， <a href="attachments/cs-merge.php" class="lert-link">2019年版</a>）
+	中科大飞跃手册，涵盖各学科申请经验，欢迎下载：
+	计算机科学：<a href="attachments/cs-2020.php" class="alert-link">2020年版</a>， <a href="attachments/cs-merge.php" class="alert-link">2019年版</a>
+	化学：<a href="attachments/chem-2020.php" class="alert-link">2020年版</a>， <a href="attachments/chem-2019.php" class="alert-link">2019年版</a>
+	物理：<a href="attachments/phy-2019.php" class="alert-link">2019年版</a>， <a href="attachments/phy-2018.php" class="alert-link">2018年版</a>
+	电子信息：<a href="attachments/ee-2019.php" class="alert-link">2019年版</a>
+	地空：<a href="attachments/geo-2017.php" class="alert-link">2017年版</a>
+	精密机械与精密仪器：<a href="attachments/pmpi-2014.php" class="alert-link">2014年版</a>
     </div>
 	  <table class="table">
 		<tr><th colspan="4">学科大类</th></tr><tr>
