@@ -12,6 +12,12 @@ define('TIMESTAMP', time());
 session_start();
 ob_start();
 
+# is adrain installed?
+if (!file_exists('./config.php')) {
+    header('location: ./install.php');
+    exit;
+}
+
 require './subject.php';
 
 $sca = new simplecookieauth;
@@ -41,9 +47,10 @@ default:
 class db
 {
         public static $con;
+
         public static function init()
     {
-            if ($con) {
+            if (self::$con) {
                 return;
             }
 

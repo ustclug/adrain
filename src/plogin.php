@@ -19,6 +19,6 @@ $studentnumber = addslashes($user);
 $userid = $studentnumber;
 
 $expire = time() + 900;
-require './config2.php';
+require './anonymous_config.php';
 
 header('location: https://adrain.ustclug.org/login.php?userid=' . sha1($key . '|' . $expire) . '&expire=' . $expire);

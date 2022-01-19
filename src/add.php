@@ -81,7 +81,7 @@ if ($Paper->isfinal()) {
         $label[] = 'CONTACT';
     }
 
-    $labelcode = join($label, ',');
+    $labelcode = join(',', $label);
 
     $stmt->bind_param('sssssssssss', $result['DateOfInformation'], $result['UniversityName'], $result['FundingStatement'], $labelcode, $result['LanguageStatement'], $result['GpaStatement'], $result['SubjectInformation'], $result['ChooseReason'], $result['SchoolName'], $result['SubsubjectName'], $result['ResultReason']);
 

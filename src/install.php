@@ -10,6 +10,7 @@ if ($_POST['dbserver']) {
     $dbpw = $_POST['dbpw'];
     $dbname = $_POST['dbname'];
     $sessionkey = $_POST['sessionkey'];
+    $anonymouskey = $_POST['anonymouskey'];
 
     if ($_POST['createdb'] == 'no') {
         $mysqli = new mysqli($dbserver, $dbuser, $dbpw, $dbname);
@@ -50,13 +51,16 @@ if ($_POST['dbserver']) {
 if(!defined(\'IN_ADRAIN\')) exit(\'Access Denied\');
 
 $dbserver = ' . var_export($dbserver, true) . ';
-$dbuser= ' . var_export($dbuser, true) . ';
+$dbuser = ' . var_export($dbuser, true) . ';
 $dbpw = ' . var_export($dbpw, true) . ';
 $dbname  = ' . var_export($dbname, true) . ';');
 
     file_put_contents('./config-session.php', '<?php
 if(!defined(\'IN_ADRAIN\')) exit(\'Access Denied\');
 $sessionkey = ' . var_export($sessionkey, true) . ';');
+
+    file_put_contents('./anonymous_config.php', '<?php
+$key = ' . var_export($anonymouskey, true) . ';');
 
     echo 'Successful!';
 } else {
@@ -135,6 +139,11 @@ $sessionkey = ' . var_export($sessionkey, true) . ';');
 			  <span class="input-group-addon">输入一个随机的字符串（请尽量长）用于临时保存会话:</span>
 			  <input type="text" name="sessionkey" class="form-control" placeholder="e.g. 357tegdh0iq02y3iwfsodhoag">
 		</div><br/>
+
+		<div class="input-group">
+			<span class="input-group-addon">输入一个随机的字符串（请尽量长）用于匿名化用户名（学号）:</span>
+			<input type="text" name="anonymouskey" class="form-control" placeholder="e.g. 357tegdh0iq02y3iwfsodhoag">
+		</div>
 
 	   <div class="input-group">
 			  <span class="input-group-addon">需要我创建数据库吗？:</span>
