@@ -1,32 +1,33 @@
 <?php
-if(file_exists('./config-session.php')){
-	exit('Access Denied');
+if (file_exists('./config-session.php')) {
+    exit('Access Denied');
 }
 error_reporting(E_ALL ^ E_NOTICE);
 
-if($_POST['dbserver']){
-	$dbserver = $_POST['dbserver'];
-	$dbuser = $_POST['dbuser'];
-	$dbpw = $_POST['dbpw'];
-	$dbname = $_POST['dbname'];
-	$sessionkey = $_POST['sessionkey'];
-	
-	if($_POST['createdb'] == 'no')
-		$mysqli = new mysqli($dbserver, $dbuser, $dbpw, $dbname);
-	else
-		$mysqli = new mysqli($dbserver, $dbuser, $dbpw);
-	
-	$mysqli->query("SET CHARACTER SET 'utf8'");
-	$mysqli->query("SET NAMES 'utf8'");
-	
-	if($_POST['createdb'] == 'yes'){
-		$mysqli->query("CREATE DATABASE IF NOT EXISTS `".addslashes($dbname)."` default charset utf8 COLLATE utf8_general_ci");
-		$mysqli->select_db($dbname);
-	}
-	
-	if($_POST['createtable'] == 'yes'){
-		$mysqli->query("DROP TABLE IF EXISTS `case`");
-		$mysqli->query("CREATE TABLE IF NOT EXISTS `case` (
+if ($_POST['dbserver']) {
+    $dbserver = $_POST['dbserver'];
+    $dbuser = $_POST['dbuser'];
+    $dbpw = $_POST['dbpw'];
+    $dbname = $_POST['dbname'];
+    $sessionkey = $_POST['sessionkey'];
+
+    if ($_POST['createdb'] == 'no') {
+        $mysqli = new mysqli($dbserver, $dbuser, $dbpw, $dbname);
+    } else {
+        $mysqli = new mysqli($dbserver, $dbuser, $dbpw);
+    }
+
+    $mysqli->query("SET CHARACTER SET 'utf8'");
+    $mysqli->query("SET NAMES 'utf8'");
+
+    if ($_POST['createdb'] == 'yes') {
+        $mysqli->query("CREATE DATABASE IF NOT EXISTS `" . addslashes($dbname) . "` default charset utf8 COLLATE utf8_general_ci");
+        $mysqli->select_db($dbname);
+    }
+
+    if ($_POST['createtable'] == 'yes') {
+        $mysqli->query("DROP TABLE IF EXISTS `case`");
+        $mysqli->query("CREATE TABLE IF NOT EXISTS `case` (
   `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `hidden` int(11) NOT NULL DEFAULT '0',
   `dateofad` char(10) NOT NULL DEFAULT '',
@@ -43,23 +44,23 @@ if($_POST['dbserver']){
   PRIMARY KEY (`cid`),
   KEY `subject` (`subject`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
-	}
-	
-	file_put_contents('./config.php', '<?php
+    }
+
+    file_put_contents('./config.php', '<?php
 if(!defined(\'IN_ADRAIN\')) exit(\'Access Denied\');
 
-$dbserver = '.var_export($dbserver, TRUE).';
-$dbuser= '.var_export($dbuser, TRUE).';
-$dbpw = '.var_export($dbpw, TRUE).';
-$dbname  = '.var_export($dbname, TRUE).';');
+$dbserver = ' . var_export($dbserver, true) . ';
+$dbuser= ' . var_export($dbuser, true) . ';
+$dbpw = ' . var_export($dbpw, true) . ';
+$dbname  = ' . var_export($dbname, true) . ';');
 
-	file_put_contents('./config-session.php', '<?php
+    file_put_contents('./config-session.php', '<?php
 if(!defined(\'IN_ADRAIN\')) exit(\'Access Denied\');
-$sessionkey = '.var_export($sessionkey, TRUE).';');
-	
-	echo 'Successful!';
-}else{
-?>
+$sessionkey = ' . var_export($sessionkey, true) . ';');
+
+    echo 'Successful!';
+} else {
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -92,10 +93,10 @@ $sessionkey = '.var_export($sessionkey, TRUE).';');
       <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+
   </head>
 
-  <body>  
+  <body>
 
 	  <div class="bs-docs-header" id="content" style="padding-top: 20px; padding-bottom: 20px; margin-top: 20px; margin-bottom: 20px;background-color:  #6f5499; color: #fff; position: relative;">
       <div class="container">
@@ -108,61 +109,61 @@ $sessionkey = '.var_export($sessionkey, TRUE).';');
 <br/>
 	   <form action="install.php" method="post">
 	   <div class="input-group">
-			  <span class="input-group-addon">MySQLi的服务器地址:</span>
+			  <span class="input-group-addon">MySQLi 的服务器地址:</span>
 			  <input type="text" name="dbserver" class="form-control" placeholder="e.g. 127.0.0.1">
 		</div><br/>
-		
-		
+
+
 	   <div class="input-group">
-			  <span class="input-group-addon">MySQLi的账号名称:</span>
+			  <span class="input-group-addon">MySQLi 的账号名称:</span>
 			  <input type="text" name="dbuser" class="form-control" placeholder="e.g. adrain">
 		</div><br/>
-		
-		
+
+
 	   <div class="input-group">
-			  <span class="input-group-addon">MySQLi的密码:</span>
+			  <span class="input-group-addon">MySQLi 的密码:</span>
 			  <input type="text" name="dbpw" class="form-control" placeholder="e.g. 3469r9fasdh0w0t">
 		</div><br/>
-		
-		
+
+
 	   <div class="input-group">
-			  <span class="input-group-addon">MySQLi的数据库名称:</span>
+			  <span class="input-group-addon">MySQLi 的数据库名称:</span>
 			  <input type="text" name="dbname" class="form-control" placeholder="e.g. 127.0.0.1">
 		</div><br/>
-		
+
 		<div class="input-group">
 			  <span class="input-group-addon">输入一个随机的字符串（请尽量长）用于临时保存会话:</span>
 			  <input type="text" name="sessionkey" class="form-control" placeholder="e.g. 357tegdh0iq02y3iwfsodhoag">
 		</div><br/>
-		
+
 	   <div class="input-group">
 			  <span class="input-group-addon">需要我创建数据库吗？:</span>
-			  
+
 			  <select name="createdb" class="form-control">
 				<option value="yes">是</option>
 				<option value="no">否</option>
 			  </select>
 		</div><br/>
-		
-		
+
+
 	   <div class="input-group">
 			  <span class="input-group-addon">需要我创建表吗？:</span>
-			  
+
 			  <select name="createtable" class="form-control">
 				<option value="yes">是</option>
 				<option value="no">否</option>
 			  </select>
 		</div><br/>
-		
+
 		<button type="submit" class="btn btn-success">开始安装</button>
 	   </form>
     </div> <!-- /container -->
 
-	
+
 	<br/>
 	<div class="container" style="color: #444;text-align:center;">
-	<p>2019 Admission Rain LUG@USTC, SEC@USTC</p>
-	
+	<p>2017 - 2022 Admission Rain LUG@USTC, SEC@USTC</p>
+
 	<p>The University of Science and Technology of China is going to be a worldwide first-class university. The massive support from us is of great importance.</p>
 	</div>
 

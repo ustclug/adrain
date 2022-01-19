@@ -17,15 +17,6 @@ cd adrain
 docker network create adrain
 # initiate these three docker containers
 docker run --name adrain-db -e MYSQL_RANDOM_ROOT_PASSWORD -v db:/var/lib/mysql -d --network=adrain --restart=always mysql
-docker run --name adrain-php --network=adrain -v src:/srv/www/ --restart=always -d php:fpm 
+docker run --name adrain-php --network=adrain -v src:/srv/www/ -v private:/srv/priv/ --restart=always -d php:fpm 
 docker run --name adrain-web --network=adrain -v src:/srv/www/ -v conf/etc/nginx:/etc/nginx -p 5006:80 --restart=always -d nginx
-```
-
-## appendix
-
-```bash
-# docker deploy commands on server(docker2.s.ustclug.org)
-docker run --name adrain-db -e MYSQL_RANDOM_ROOT_PASSWORD -v ./db:/var/lib/mysql -d --network=adrain --restart=always mysql 
-docker run --name adrain-php --network=adrain -v /srv/docker/adrain/src/:/srv/www/ --restart=always -d php:fpm 
-docker run --name adrain-web --network=adrain -v /srv/docker/adrain/src/:/srv/www/ -v /srv/docker/adrain/conf/etc/nginx:/etc/nginx -p 5006:80 --restart=always -d nginx
 ```

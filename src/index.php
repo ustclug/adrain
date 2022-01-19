@@ -6,9 +6,9 @@ require './global.php';
 
 template('header');
 
-if(login()){
-	db::init();
-?>
+if (login()) {
+    db::init();
+    ?>
     <div class="alert alert-info" role="alert" style="white-space: pre-wrap;">
 	中科大飞跃手册，涵盖各学科申请经验，欢迎下载：
 	计算机科学：<a href="attachments/cs-2020.php" class="alert-link">2020年版</a>， <a href="attachments/cs-2019.php" class="alert-link">2019年版</a>
@@ -20,39 +20,39 @@ if(login()){
     </div>
 	  <table class="table">
 		<tr><th colspan="4">学科大类</th></tr><tr>
-		<?php 
-		$counter = 0;
-		$sub = $_ENV['subject'];
-		$sub['all'] = '全部';
-		foreach($sub as $k=>$v):
-		$counter ++;
-		?>
-		<td><a href=
 		<?php
-		if($k!='all'):
-		?>
-		"list.php?y=<?php echo $k;?>"
-		<?php
-		else:
-		?>
+$counter = 0;
+    $sub = $_ENV['subject'];
+    $sub['all'] = '全部';
+    foreach ($sub as $k => $v):
+        $counter++;
+        ?>
+			<td><a href=
+			<?php
+    if ($k != 'all'):
+        ?>
+			"list.php?y=<?php echo $k; ?>"
+			<?php
+else:
+    ?>
 		"listall.php"
 		<?php endif;?>
-		><?php echo $v;?></a></td>
+		><?php echo $v; ?></a></td>
 		<?php
-		if($counter % 4 == 0):
-		?></tr>
+if ($counter % 4 == 0):
+    ?></tr>
 		<?php endif;?>
 		<?php endforeach;?>
 	  </table>
 <?php
-}else{
-?>
+} else {
+    ?>
 	<div class="jumbotron">
 	  <h3>必须通过科大的统一登录系统，才能访问 ADRain</h3>
-	  <p>如果出现异常账户，请删除cookie里的passport.ustc.edu.cn的laravel_session。</p>
+	  <p>如果出现异常账户，请删除 cookie 里的 passport.ustc.edu.cn 的 laravel_session。</p>
 	  <p><a class="btn btn-primary btn-lg" href="plogin.php" role="button">登录</a></p>
 	</div>
-<?php	
+<?php
 }
 
 template('footer');

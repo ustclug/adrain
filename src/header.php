@@ -1,5 +1,8 @@
 <?php
-if(!defined('IN_ADRAIN')) exit('Access Denied');
+if (!defined('IN_ADRAIN')) {
+    exit('Access Denied');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,16 +36,16 @@ if(!defined('IN_ADRAIN')) exit('Access Denied');
       <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+
   </head>
 
-  <body>  
+  <body>
       <div class="container"><img src="images/aplogo.gif" style="float:right;" />
   <ul class="nav nav-pills" role="tablist">
-  <li role="presentation"<?php echo !defined('IN_ADD')?" class=\"active\"":'';?>><a href="index.php">不同学科进展</a></li>
-  <li role="presentation"<?php echo defined('IN_ADD')?" class=\"active\"":'';?>><a href="add.php">报告我的录取案例</a></li>
+  <li role="presentation"<?php echo !defined('IN_ADD') ? " class=\"active\"" : ''; ?>><a href="index.php">不同学科进展</a></li>
+  <li role="presentation"<?php echo defined('IN_ADD') ? " class=\"active\"" : ''; ?>><a href="add.php">报告我的录取案例</a></li>
   <?php
-  if(0 && login()):?>
+if (0 && login()): ?>
   <li role="presentation"><a href="logout.php">退出当前账号</a></li>
   <?php endif;?>
 </ul></div>
@@ -50,7 +53,7 @@ if(!defined('IN_ADRAIN')) exit('Access Denied');
 	  <div class="bs-docs-header" id="content" style="padding-top: 20px; padding-bottom: 20px; margin-top: 20px; margin-bottom: 20px;background-color:  #6f5499; color: #fff; position: relative;">
       <div class="container">
         <h2>出国没有那么难！</h2>
-        <p>近三年的观察表明，只要考了托福和GRE，都是可以出国的。反之亦然。———— 陈炜铿（2013级郭沫若奖获得者）</p>
+        <p>近三年的观察表明，只要考了托福和 GRE，都是可以出国的。反之亦然。———— 陈炜铿（2013 级郭沫若奖获得者）</p>
       </div>
     </div>
 
