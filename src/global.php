@@ -30,89 +30,89 @@ function login()
 function template($str)
 {
     switch ($str):
-case 'header':
-    require './header.php';
-    break;
-case 'footer':
-    require './footer.php';
-    break;
-case 'showmessage':
-    require './showmessage.php';
-    break;
-default:
-    break;
+        case 'header':
+            require './header.php';
+            break;
+        case 'footer':
+            require './footer.php';
+            break;
+        case 'showmessage':
+            require './showmessage.php';
+            break;
+        default:
+            break;
     endswitch;
 }
 
 class db
 {
-        public static $con;
+    public static $con;
 
-        public static function init()
+    public static function init()
     {
-            if (self::$con) {
-                return;
-            }
-
-            require './config.php';
-            self::$con = mysqli_connect($dbserver, $dbuser, $dbpw, $dbname);
-            $dbserver = $dbuser = $dbpw = $dbname = '';
-
-            mysqli_query(self::$con, "SET CHARACTER SET 'utf8'");
-            mysqli_query(self::$con, "SET NAMES 'utf8'");
-
-            if (mysqli_connect_errno()) {
-                echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                exit();
-            }
+        if (self::$con) {
+            return;
         }
 
-        public static function query()
+        require './config.php';
+        self::$con = mysqli_connect($dbserver, $dbuser, $dbpw, $dbname);
+        $dbserver = $dbuser = $dbpw = $dbname = '';
+
+        mysqli_query(self::$con, "SET CHARACTER SET 'utf8'");
+        mysqli_query(self::$con, "SET NAMES 'utf8'");
+
+        if (mysqli_connect_errno()) {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            exit();
+        }
+    }
+
+    public static function query()
     {
-            $args = func_get_args();
-            $string = $args[0];
-            array_shift($args);
+        $args = func_get_args();
+        $string = $args[0];
+        array_shift($args);
 
-            if (count($args) == 0) {
-                $sql = $string;
-            } else {
-                $sql = vsprintf($string, $args);
-            }
-
-            $query = mysqli_query(self::$con, $sql);
-
-            if (mysqli_error(self::$con)) {
-                echo mysqli_error(self::$con);
-            }
-
-            return $query;
+        if (count($args) == 0) {
+            $sql = $string;
+        } else {
+            $sql = vsprintf($string, $args);
         }
 
-        public static function fetch_first()
-    {
-            $args = func_get_args();
-            $string = $args[0];
-            array_shift($args);
+        $query = mysqli_query(self::$con, $sql);
 
-            if (count($args) == 0) {
-                $sql = $string;
-            } else {
-                $sql = vsprintf($string, $args);
-            }
-
-            $query = mysqli_query(self::$con, $sql);
-
-            if (mysqli_error(self::$con)) {
-                echo mysqli_error(self::$con);
-            }
-
-            return self::fetch($query);
+        if (mysqli_error(self::$con)) {
+            echo mysqli_error(self::$con);
         }
 
-        public static function fetch($query)
+        return $query;
+    }
+
+    public static function fetch_first()
     {
-            return mysqli_fetch_array($query, MYSQLI_ASSOC);
+        $args = func_get_args();
+        $string = $args[0];
+        array_shift($args);
+
+        if (count($args) == 0) {
+            $sql = $string;
+        } else {
+            $sql = vsprintf($string, $args);
         }
+
+        $query = mysqli_query(self::$con, $sql);
+
+        if (mysqli_error(self::$con)) {
+            echo mysqli_error(self::$con);
+        }
+
+        return self::fetch($query);
+    }
+
+    public static function fetch($query)
+    {
+        return mysqli_fetch_array($query, MYSQLI_ASSOC);
+    }
 }
 
 class simplecookieauth

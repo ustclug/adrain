@@ -1,6 +1,6 @@
 <?php
 // requires $filename and $filepath to be set.
-if (!isset($filename) || !isset($filepath)) 
+if (!isset($filename) || !isset($filepath))
     exit('Attachment parameter set improperly. Abort.');
 
 function login()

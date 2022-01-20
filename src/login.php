@@ -8,7 +8,7 @@ if ($_GET['userid'] && $_GET['expire']) {
         exit('Timeout');
     }
 
-    require './anonymous_config.php'; //has a variable $key in anonymous_config.php
+    require './anonymous_config.php'; // has a variable $key in anonymous_config.php
 
     if (sha1($key . '|' . $expire) != $_GET['userid']) {
         exit('Wrong');
