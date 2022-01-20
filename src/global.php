@@ -24,6 +24,9 @@ $sca = new simplecookieauth;
 
 function login()
 {
+    if (!isset($_SESSION['userid'])) {
+        return false;
+    }
     return $_SESSION['userid'];
 }
 
