@@ -1,1 +1,6 @@
 config.php
+backup.sql
+google*.html
+config-session.php
+anonymous_config.php
+config2.php

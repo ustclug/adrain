@@ -19,28 +19,28 @@
  *
  * PHP Version 5
  *
- * @file     CAS/Language/English.php
+ * @file     CAS/Language/ChineseSimplified.php
  * @category Authentication
  * @package  PhpCAS
- * @author   Pascal Aubry <pascal.aubry@univ-rennes1.fr>
+ * @author   Pascal Aubry <pascal.aubry@univ-rennes1.fr>, Phy25 <caslang@phy25.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  */
 
 /**
- * English language class
+ * Chinese Simplified language class
  *
- * @class    CAS_Languages_English
+ * @class    CAS_Languages_ChineseSimplified
  * @category Authentication
  * @package  PhpCAS
- * @author   Pascal Aubry <pascal.aubry@univ-rennes1.fr>
+ * @author   Pascal Aubry <pascal.aubry@univ-rennes1.fr>, Phy25 <caslang@phy25.com>
  * @license  http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @link     https://wiki.jasig.org/display/CASC/phpCAS
  *
  * @sa @link internalLang Internationalization @endlink
  * @ingroup internalLang
  */
-class CAS_Languages_English implements CAS_Languages_LanguageInterface
+class CAS_Languages_ChineseSimplified implements CAS_Languages_LanguageInterface
 {
     /**
      * Get the using server string
@@ -49,7 +49,7 @@ class CAS_Languages_English implements CAS_Languages_LanguageInterface
      */
     public function getUsingServer()
     {
-        return 'using server';
+        return '??????????????????';
     }
 
     /**
@@ -59,7 +59,7 @@ class CAS_Languages_English implements CAS_Languages_LanguageInterface
      */
     public function getAuthenticationWanted()
     {
-        return 'CAS Authentication wanted!';
+        return '????????? CAS ?????????';
     }
 
     /**
@@ -69,7 +69,7 @@ class CAS_Languages_English implements CAS_Languages_LanguageInterface
      */
     public function getLogout()
     {
-        return 'CAS logout wanted!';
+        return '????????? CAS ?????????';
     }
 
     /**
@@ -79,7 +79,7 @@ class CAS_Languages_English implements CAS_Languages_LanguageInterface
      */
     public function getShouldHaveBeenRedirected()
     {
-        return 'You should already have been redirected to the CAS server. Click <a href="%s">here</a> to continue.';
+        return '????????????????????? CAS ????????????<a href="%s">????????????</a>?????????';
     }
 
     /**
@@ -89,7 +89,7 @@ class CAS_Languages_English implements CAS_Languages_LanguageInterface
     */
     public function getAuthenticationFailed()
     {
-        return 'CAS Authentication failed!';
+        return 'CAS ???????????????';
     }
 
     /**
@@ -99,7 +99,7 @@ class CAS_Languages_English implements CAS_Languages_LanguageInterface
     */
     public function getYouWereNotAuthenticated()
     {
-        return '<p>You were not authenticated.</p><p>You may submit your request again by clicking <a href="%s">here</a>.</p><p>If the problem persists, you may contact <a href="mailto:%s">the administrator of this site</a>.</p>';
+        return '<p>????????????????????????</p><p>?????????<a href="%s">????????????????????????</a>???</p><p>??????????????????????????????<a href="mailto:%s">?????????????????????</a>???</p>';
     }
 
     /**
@@ -109,6 +109,6 @@ class CAS_Languages_English implements CAS_Languages_LanguageInterface
     */
     public function getServiceUnavailable()
     {
-        return 'The service `<b>%s</b>\' is not available (<b>%s</b>).';
+        return '????????? <b>%s</b> ????????????<b>%s</b>??????';
     }
 }

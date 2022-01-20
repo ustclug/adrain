@@ -1,3 +1,0 @@
-hostname={{SMTP_SERVER}}
-username={{SMTP_USERNAME}}
-password={{SMTP_PASSWORD}}
