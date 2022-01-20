@@ -27,12 +27,12 @@ $counter = 0;
     foreach ($sub as $k => $v):
         $counter++;
         ?>
-			<td><a href=
-			<?php
+				<td><a href=
+				<?php
     if ($k != 'all'):
         ?>
-			"list.php?y=<?php echo $k; ?>"
-			<?php
+				"list.php?y=<?php echo $k; ?>"
+				<?php
 else:
     ?>
 		"listall.php"
