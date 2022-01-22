@@ -61,8 +61,8 @@ class db
         self::$con = mysqli_connect($dbserver, $dbuser, $dbpw, $dbname);
         $dbserver = $dbuser = $dbpw = $dbname = '';
 
-        mysqli_query(self::$con, "SET CHARACTER SET 'utf8'");
-        mysqli_query(self::$con, "SET NAMES 'utf8'");
+        mysqli_query(self::$con, "SET CHARACTER SET 'utf8mb4'");
+        mysqli_query(self::$con, "SET NAMES 'utf8mb4'");
 
         if (mysqli_connect_errno()) {
             echo "Failed to connect to MySQL: " . mysqli_connect_error();

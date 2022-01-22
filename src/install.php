@@ -18,11 +18,11 @@ if ($_POST['dbserver']) {
         $mysqli = new mysqli($dbserver, $dbuser, $dbpw);
     }
 
-    $mysqli->query("SET CHARACTER SET 'utf8'");
-    $mysqli->query("SET NAMES 'utf8'");
+    $mysqli->query("SET CHARACTER SET 'utf8mb4'");
+    $mysqli->query("SET NAMES 'utf8mb4'");
 
     if ($_POST['createdb'] == 'yes') {
-        $mysqli->query("CREATE DATABASE IF NOT EXISTS `" . addslashes($dbname) . "` default charset utf8 COLLATE utf8_general_ci");
+        $mysqli->query("CREATE DATABASE IF NOT EXISTS `" . addslashes($dbname) . "` default charset utf8mb4 COLLATE utf8mb4_general_ci");
         $mysqli->select_db($dbname);
     }
 
@@ -44,7 +44,7 @@ if ($_POST['dbserver']) {
   `noteforad` text NOT NULL,
   PRIMARY KEY (`cid`),
   KEY `subject` (`subject`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
+) ENGINE=Innodb  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;");
     }
 
     file_put_contents('./config.php', '<?php
