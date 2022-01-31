@@ -78,7 +78,7 @@ $key = ' . var_export($anonymouskey, true) . ';');
     <title>LUG@USTC SEC@USTC ADRAIN PROJECT - THE DOCKER</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <style type="text/css">
@@ -94,8 +94,8 @@ $key = ' . var_export($anonymouskey, true) . ';');
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <script src="/static/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="/static/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
   </head>
@@ -179,8 +179,8 @@ $key = ' . var_export($anonymouskey, true) . ';');
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="/static/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/static/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
   </body>
 </html>

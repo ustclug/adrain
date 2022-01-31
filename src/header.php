@@ -17,7 +17,7 @@ if (!defined('IN_ADRAIN')) {
     <title>中国科学技术大学 申请海外大学研究生的录取情况报告系统</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <style type="text/css">
@@ -33,8 +33,8 @@ if (!defined('IN_ADRAIN')) {
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+      <script src="/static/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="/static/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
   </head>
