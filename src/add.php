@@ -1,4 +1,5 @@
 <?php
+exit(0);
 define('IN_ADRAIN', 1);
 define('IN_ADD', 1);
 require './global.php';

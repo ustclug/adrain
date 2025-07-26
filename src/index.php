@@ -9,6 +9,12 @@ template('header');
 if (login()) {
 	db::init();
 ?>
+	<div class="alert alert-warning" role="alert" style="white-space: pre-wrap;">
+		Adrain 已不再维护，并将于 2026 年 1 月 1 日后下线。您无法新增新的申请记录。
+		请收藏 USTC 飞跃编辑部的新网站：<a href="https://ustcflyer.com" class="alert-link">https://ustcflyer.com</a>。
+		Adrain 的公开数据由 USTC 飞跃编辑部转移至新网站，您可以在新网站上继续查阅和分享申请经验。
+		如果希望删除位于 USTC 飞跃编辑部网站的数据，请联系我们或 USTC 飞跃编辑部（flyers_ustc@163.com）。
+	</div>
 	<div class="alert alert-info" role="alert" style="white-space: pre-wrap;">
 		中科大飞跃手册，涵盖各学科申请经验，欢迎下载：
 		计算机科学：<a href="attachments/cs-2020.php" class="alert-link">2020年版</a>， <a href="attachments/cs-2019.php" class="alert-link">2019年版</a>
