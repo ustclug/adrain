@@ -31,6 +31,11 @@ if ($_POST['ID']) {
 template('header');
 ?>
 
+	<div class="alert alert-warning" role="alert" style="white-space: pre-wrap;">
+		提示：你可能需要额外确认数据是否在 USTC 飞跃编辑部的新网站：<a href="https://ustcflyer.com" class="alert-link">https://ustcflyer.com</a>。
+        在此处删除无法删除 USTC 飞跃编辑部新网站上的数据。
+	</div>
+
 
 <?php if ($msgtype == 'info'): ?>
 	   <form action="update.php" method="post">
